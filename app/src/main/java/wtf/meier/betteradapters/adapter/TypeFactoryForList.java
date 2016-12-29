@@ -1,8 +1,9 @@
 package wtf.meier.betteradapters.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 
-import wtf.meier.betteradapters.R;
+import wtf.meier.betteradapters.adapter.exception.TypeNotSupportedException;
 import wtf.meier.betteradapters.adapter.viewholders.AbstractBetterViewHolder;
 import wtf.meier.betteradapters.adapter.viewholders.CarViewHolder;
 import wtf.meier.betteradapters.adapter.viewholders.DuckViewHolder;
@@ -18,36 +19,35 @@ import wtf.meier.betteradapters.entities.Mouse;
 public class TypeFactoryForList implements TypeFactory {
     @Override
     public int type(Duck duck) {
-        return R.layout.viewholder_duck;
+        return DuckViewHolder.LAYOUT;
     }
 
     @Override
     public int type(Mouse mouse) {
-        return R.layout.viewholder_mouse;
+        return MouseViewHolder.LAYOUT;
     }
 
     @Override
     public int type(Car car) {
-        return R.layout.viewholder_car;
+        return CarViewHolder.LAYOUT;
     }
 
     @Override
+    @SuppressLint("DefaultLocale")
     public AbstractBetterViewHolder createViewHolder(View parent, int type) {
         AbstractBetterViewHolder createdViewHolder;
         switch (type) {
-            case R.layout.viewholder_car:
+            case CarViewHolder.LAYOUT:
                 createdViewHolder = new CarViewHolder(parent);
                 break;
-            case R.layout.viewholder_duck:
+            case DuckViewHolder.LAYOUT:
                 createdViewHolder = new DuckViewHolder(parent);
                 break;
-            case R.layout.viewholder_mouse:
+            case MouseViewHolder.LAYOUT:
                 createdViewHolder = new MouseViewHolder(parent);
                 break;
             default:
-                // improve this
-                createdViewHolder = null;
-                break;
+                throw TypeNotSupportedException.create(String.format("LayoutType: %d", type));
         }
         return createdViewHolder;
     }

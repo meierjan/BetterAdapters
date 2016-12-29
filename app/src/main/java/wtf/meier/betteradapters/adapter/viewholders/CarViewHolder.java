@@ -1,6 +1,7 @@
 package wtf.meier.betteradapters.adapter.viewholders;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +15,9 @@ import wtf.meier.betteradapters.entities.Car;
 
 public class CarViewHolder extends AbstractBetterViewHolder<Car> {
 
+    @LayoutRes
+    public static final int LAYOUT = R.layout.viewholder_car;
+
     @BindView(R.id.viewholder_car_name)
     TextView manufacturer;
     @BindView(R.id.viewholder_car_ps)
@@ -21,11 +25,6 @@ public class CarViewHolder extends AbstractBetterViewHolder<Car> {
 
     public CarViewHolder(View itemView) {
         super(itemView);
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.viewholder_car;
     }
 
     @SuppressLint("DefaultLocale")

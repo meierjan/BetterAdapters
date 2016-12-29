@@ -1,6 +1,5 @@
 package wtf.meier.betteradapters.adapter.viewholders;
 
-import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -15,9 +14,6 @@ public abstract class AbstractBetterViewHolder<T> extends RecyclerView.ViewHolde
         super(view);
         ButterKnife.bind(this, view);
     }
-
-    @LayoutRes
-    public abstract int getLayoutId();
 
     public abstract void bind(T element);
 }

@@ -1,5 +1,6 @@
 package wtf.meier.betteradapters.adapter.viewholders;
 
+import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +14,9 @@ import wtf.meier.betteradapters.entities.Duck;
 
 public class DuckViewHolder extends AbstractBetterViewHolder<Duck> {
 
+    @LayoutRes
+    public static final int LAYOUT = R.layout.viewholder_duck;
+
     @BindView(R.id.viewholder_duck_name)
     TextView name;
 
@@ -21,11 +25,6 @@ public class DuckViewHolder extends AbstractBetterViewHolder<Duck> {
 
     public DuckViewHolder(View itemView) {
         super(itemView);
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.viewholder_car;
     }
 
     @Override

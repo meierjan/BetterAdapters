@@ -1,5 +1,6 @@
 package wtf.meier.betteradapters.adapter.viewholders;
 
+import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,16 +14,14 @@ import wtf.meier.betteradapters.entities.Mouse;
 
 public class MouseViewHolder extends AbstractBetterViewHolder<Mouse> {
 
+    @LayoutRes
+    public static final int LAYOUT = R.layout.viewholder_mouse;
+
     @BindView(R.id.viewholder_mouse_name)
     TextView name;
 
     public MouseViewHolder(View itemView) {
         super(itemView);
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.viewholder_car;
     }
 
     @Override
