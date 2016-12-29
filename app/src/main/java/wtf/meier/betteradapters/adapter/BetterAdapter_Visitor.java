@@ -27,7 +27,7 @@ public class BetterAdapter_Visitor extends RecyclerView.Adapter<AbstractBetterVi
     public AbstractBetterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         /**
-         * using the {@link viewType} as resource here, I think this deserves slaps as well
+         * attention: {@link viewType} as resource
          */
         View contactView = LayoutInflater.from(context).inflate(viewType, parent, false);
         return typeFactory.createViewHolder(contactView, viewType);
@@ -36,7 +36,7 @@ public class BetterAdapter_Visitor extends RecyclerView.Adapter<AbstractBetterVi
     @Override
     public void onBindViewHolder(AbstractBetterViewHolder holder, int position) {
         /**
-         * this is a bit hacky as well
+         * attention: unchecked
          */
         holder.bind(elements.get(position));
     }
