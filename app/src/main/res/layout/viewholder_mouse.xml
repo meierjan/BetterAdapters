@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:background="@color/mouseColor"
+    >
 
     <TextView
         android:id="@+id/viewholder_mouse_name"
